@@ -155,7 +155,7 @@ export default function Home() {
         suppressHydrationWarning
         className="w-full text-center py-6 mt-auto text-[10px] tracking-widest text-pink-500/60 relative z-10 border-t border-pink-100/60"
       >
-        &copy; {new Date().getFullYear()} FOTO KITA BLUR &bull; Kim Lanisa
+        © {new Date().getFullYear()} FOTO KITA BLUR • Kim Lanisa
       </footer>
     </main>
   );

@@ -421,9 +421,7 @@ export const Photobooth: React.FC<PhotoboothProps> = ({
     // Cooldown sequence
     setIsCooldown(true);
     isCooldownRef.current = true; // Sync ref immediately
-    if (challengeModeRef.current) {
-      setIsBlurred(true); // Remain blurred during the cooldown preview phase if challenge mode is active
-    }
+    setIsBlurred(false); // Immediately unblur the camera preview after snapping!
 
     if (flashTimeoutRef.current) clearTimeout(flashTimeoutRef.current);
     flashTimeoutRef.current = setTimeout(() => {
@@ -435,9 +433,9 @@ export const Photobooth: React.FC<PhotoboothProps> = ({
       setIsCooldown(false);
       isCooldownRef.current = false; // Sync ref immediately
       setIsBlurred(false); // Clear blur for next pose sequence
-      isCountdownActive.current = false; // Reset the gate lock — a fresh 3s hold is required next
+      isCountdownActive.current = false; // Reset the gate lock — a fresh pose hold is required next
       setLastCapturedPreview(null);
-    }, 2000);
+    }, 1000);
   };
 
   return (
